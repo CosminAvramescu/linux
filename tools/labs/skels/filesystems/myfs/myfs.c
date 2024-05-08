@@ -67,10 +67,10 @@ struct inode *myfs_get_inode(struct super_block *sb, const struct inode *dir,
 	inode_init_owner(inode, NULL, mode);
 
 	/* TODO 5: Init i_ino using get_next_ino */
-	inode->i_ino = get_next_ino();
+	// inode->i_ino = get_next_ino();
 
 	/* TODO 6: Initialize address space operations. */
-	inode->i_mapping->a_ops = &myfs_aops;
+	// inode->i_mapping->a_ops = &myfs_aops;
 
 	if (S_ISDIR(mode)) {
 		/* TODO 3: set inode operations for dir inodes. */
@@ -80,7 +80,6 @@ struct inode *myfs_get_inode(struct super_block *sb, const struct inode *dir,
 		/* TODO 5: use myfs_dir_inode_operations for inode
 		 * operations (i_op).
 		 */
-		inode->i_op = &myfs_dir_inode_operations;
 
 		/* TODO 3: directory inodes start off with i_nlink == 2 (for "." entry).
 		 * Directory link count should be incremented (use inc_nlink).
@@ -91,11 +90,6 @@ struct inode *myfs_get_inode(struct super_block *sb, const struct inode *dir,
 	/* TODO 6: Set file inode and file operations for regular files
 	 * (use the S_ISREG macro).
 	 */
-	if (S_ISREG(mode)) {	
-		inode->i_atime = inode->i_ctime = inode->i_mtime = current_time(inode);
-		inode->i_fop = &myfs_file_operations;
-		inode->i_op = &myfs_file_inode_operations;
-	}
 
 	return inode;
 }

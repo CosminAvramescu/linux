@@ -21,4 +21,7 @@ Block size: 4096                                                                
 Blocks: Total: 0          Free: 0          Available: 0                                                      │
 Inodes: Total: 0          Free: 0                                                                            │
 + cd /mnt/myfs                                                                                               │
-./test-myfs.sh: cd: line 1: can't cd to /mnt/myfs 
++ ls -la                                                                                                     │
++ cd ..                                                                                                      │
++ umount /mnt/myfs                                                                                           │
++ rmmod myfs                                                                                                 │
