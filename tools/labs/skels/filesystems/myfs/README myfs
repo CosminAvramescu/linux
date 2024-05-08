@@ -1,0 +1,27 @@
+Am rulat ./test-myfs.sh
+
+
+Output:
+root@qemux86:~/skels/filesystems/myfs# ./test-myfs.sh                                                        │root@docker-desktop:/linux/tools/labs#
++ insmod myfs.ko                                                                                             │
+myfs: loading out-of-tree module taints kernel.                                                              │
++ mkdir -p /mnt/myfs                                                                                         │
++ mount -t myfs none /mnt/myfs                                                                               │
+root inode has 2 link(s)                                                                                     │
++ cat /proc/filesystems                                                                                      │
++ grep myfs                                                                                                  │
+nodev   myfs                                                                                                 │
++ grep myfs                                                                                                  │
++ cat /proc/mounts                                                                                           │
+none /mnt/myfs myfs rw,relatime 0 0                                                                          │
++ stat -f /mnt/myfs                                                                                          │
+  File: "/mnt/myfs"                                                                                          │
+    ID: 0        Namelen: 255     Type: UNKNOWN                                                              │
+Block size: 4096                                                                                             │
+Blocks: Total: 0          Free: 0          Available: 0                                                      │
+Inodes: Total: 0          Free: 0                                                                            │
++ cd /mnt/myfs                                                                                               │
++ ls -la                                                                                                     │
++ cd ..                                                                                                      │
++ umount /mnt/myfs                                                                                           │
++ rmmod myfs                                                                                                 │
